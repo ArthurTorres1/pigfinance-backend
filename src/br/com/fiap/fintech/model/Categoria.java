@@ -1,3 +1,5 @@
+package br.com.fiap.fintech.model;
+
 public class Categoria {
     private String nome;
     private String corHexadecimal;
