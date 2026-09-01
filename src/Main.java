@@ -1,13 +1,17 @@
+import br.com.fiap.fintech.model.*;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Categoria catAlimentacao = new Categoria("Alimentação", "#FFA500");
-        Categoria catMoradia = new Categoria("Moradia", "#008000");
 
-        Transacao t1 = new Transacao("Mercado Extra", 1240.00, "DESPESA", catAlimentacao);
-        Transacao t2 = new Transacao("Aluguel", 1050.00, "DESPESA", catMoradia);
+        Conta conta = new Conta(1, "Corrente", 1500.00, 123);
+        Categoria categoria = new Categoria("Alimentação", "#FF3000");
 
-        System.out.println("Gasto com: " + t1.getCategoria().getNome());
+        Transacao t1 = new Transacao(1, 500.00, TipoOperacao.SAIDA, "PIX", conta, categoria);
+        Caixinha cx = new Caixinha(1, "Carro", 30.000, 10.000);
+        cx.pouparNaCaixinha(conta, 5.000);
+
+        System.out.println("Transação de: " + t1.getValor() + " na Categoria de: " + t1.getCategoria().getNome());
         }
 }

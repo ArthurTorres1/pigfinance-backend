@@ -48,9 +48,14 @@ public class Caixinha {
         this.valorPoupado = valorPoupado;
     }
 
-    public void pouparNaCaixinha(double valor) {
-        this.valorPoupado += valor;
-        System.out.println("[Método pouparNaCaixinha] Adicionando R$" + valor + " à caixinha '" + this.nomeCaixinha + "'. Objetivo: Atingir o valor final de R$" + this.valorObjetivo);
+    public void pouparNaCaixinha(Conta conta, double valor) {
+        boolean sucesso = conta.sacar(valor);
+        if(sucesso){
+            System.out.println("[Método pouparNaCaixinha] Adicionando R$" + valor + " à caixinha '"
+                    + this.nomeCaixinha + "'. Objetivo: Atingir o valor final de R$" + this.valorObjetivo);
+
+            this.valorPoupado += valor;
+        }
     }
 
     public void exibirProgresso() {
