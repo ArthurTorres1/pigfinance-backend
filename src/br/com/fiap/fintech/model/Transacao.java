@@ -34,6 +34,11 @@ public class Transacao {
         this.categoria = categoria;
     }
 
+    public void exibirComprovante() {
+        System.out.println("=== COMPROVANTE DE TRANSAÇÃO ===");
+        System.out.println("ID: " + idTransacao + " | Valor: R$ " + valor + " | Operação: " + tipoOperacao);
+    }
+
     public Categoria getCategoria() {
         return categoria;
     }
