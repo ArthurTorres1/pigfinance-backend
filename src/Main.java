@@ -9,9 +9,20 @@ public class Main {
         Categoria categoria = new Categoria("Alimentação", "#FF3000");
 
         Transacao t1 = new Transacao(1, 500.00, TipoOperacao.SAIDA, "PIX", conta, categoria);
-        Caixinha cx = new Caixinha(1, "Carro", 30.000, 10.000);
-        cx.pouparNaCaixinha(conta, 5.000);
+        Caixinha cx = new Caixinha(1, "Carro", 30000.00, 10000.00);
+        cx.pouparNaCaixinha(conta, 500000);
+
+        // Polimorfismo no Saque
+        System.out.println("--- Testando Saque em Conta Corrente ---");
+        conta.sacar(100.00);
+
+        // Instanciando TransacaoPix (Herança de Transacao)
+        TransacaoPix pix = new TransacaoPix(101, 102.50, TipoOperacao.SAIDA, conta, categoria, "usuario@email.com");
+
+        System.out.println("\n--- Testando Polimorfismo no Comprovante ---");
+        // Invoca o metodo sobrescrito da TransacaoPix
+        pix.exibirComprovante();
 
         System.out.println("Transação de: " + t1.getValor() + " na Categoria de: " + t1.getCategoria().getNome());
-        }
+    }
 }

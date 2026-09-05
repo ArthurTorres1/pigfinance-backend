@@ -3,7 +3,7 @@ package br.com.fiap.fintech.model;
 public class Conta {
     private int idConta;
     private String tipoConta;
-    protected double saldo;
+    private double saldo;
     private int numeroAgencia;
 
     public Conta() {
@@ -63,4 +63,14 @@ public class Conta {
             return false;
         }
     }
+
+    // Encapsulamento
+    public int getId() {return idConta;}
+    public void setId(int idConta) { this.idConta = idConta;}
+    public String getTipo() {return tipoConta;}
+    public void setTipo(String tipoConta) {this.tipoConta = tipoConta;}
+    public int getNumero() { return numeroAgencia; }
+    public void setNumero(int numero) { this.numeroAgencia = numeroAgencia; }
 }
+
+
